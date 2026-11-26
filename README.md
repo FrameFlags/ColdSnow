@@ -23,6 +23,8 @@ up to **64 layers** by default 16 — using realistic animated particle effects 
   blocks up to a configurable 8–64 layers (default 16), with entity push-up and biome checks.
 - **Realistic particles:** seven-frame animated snow flakes, seven-frame blizzard flakes,
   and eight-frame wind streaks, with light-dependent colour, fade-in/out and ground shrink.
+  Flake fall speed is driven by the synced storm intensity, so snow visibly falls faster as
+  the storm builds.
 - **Weather sync:** the server owns the storm; clients receive stage/intensity packets for
   rendering. Vanilla snowflake rendering is suppressed while a Cold Snow storm is active.
 - **Configurable:** `config/coldsnow.json` (server) and `config/coldsnow-client.json`
