@@ -23,15 +23,15 @@ assertion path.
 - [x] GitHub repo exists and is public; `build.yml` runs on push/PR/manual.
   Evidence: https://github.com/FrameFlags/ColdSnow — public; `.github/workflows/build.yml` has `on: [push, pull_request, workflow_dispatch]`.
 - [x] `build` workflow is green on the release commit.
-  Evidence: https://github.com/FrameFlags/ColdSnow/actions/runs/45742689523 — success on `2c4cc074a9b151d156949e05e7e7f647c5628b65`.
+  Evidence: final run https://github.com/FrameFlags/ColdSnow/actions/runs/45743486048 — success on `f14f646d994b990a11c150a251849ceaa122ecca` (previous green: /45742689523).
 - [x] JUnit tests for timeline boundaries, determinism, depth policy and config recovery pass in CI.
-  Evidence: CI run above, `> Task :test`, `BUILD SUCCESSFUL in 1m 29s`; downloaded test report `index.html` shows `14` tests, `0` failures across
+  Evidence: final CI run https://github.com/FrameFlags/ColdSnow/actions/runs/45743486048, `> Task :test`, `BUILD SUCCESSFUL`; downloaded test report `index.html` shows `14` tests, `0` failures across
   `StormTimelineTest`, `SnowDepthPolicyTest`, `ConfigStoreTest`.
 - [x] Product jar is non-empty and contains classes plus `META-INF/mods.toml` and particle assets.
   Evidence: CI step `Verify product jar` printed `Product jar: build/libs/coldsnow-1.20.1-forge-1.0.0.jar`;
-  `unzip -l` on the downloaded artifact → 29 `.class` entries, `META-INF/mods.toml`,
+  `unzip -l` on the downloaded final artifact → 30 `.class` entries (including `StormSnowFactory.class`), `META-INF/mods.toml`,
   `assets/coldsnow/particles/snow.json`, `assets/coldsnow/textures/particle/snow_0.png`.
-  SHA-256: `39fa533d0b7f009c35ca333fe6b3be6cfc4597da2ac41812cca5039a89747936`.
+  SHA-256: `89f098da1b2ec4f63a2dce60678a7b5d5d54d8b7eb3c3fdabbeda18399ef907c`.
 - [x] No local `gradlew`/`gradle build` was run for acceptance.
   Evidence: only `javap` API inspection was run locally; all compilation happened in the CI run above.
 
@@ -56,6 +56,6 @@ assertion path.
 
 | Check | Evidence (run URL / command output) | Date |
 |---|---|---|
-| Build + 14 tests | https://github.com/FrameFlags/ColdSnow/actions/runs/45742689523 | 2026-11-26 |
-| Artifact | `coldsnow-1.20.1-forge-1.0.0.jar`, SHA-256 `39fa533d…89747936` | 2026-11-26 |
+| Final build + 14 tests | https://github.com/FrameFlags/ColdSnow/actions/runs/45743486048 | 2026-11-26 |
+| Artifact | `coldsnow-1.20.1-forge-1.0.0.jar`, 30 classes, SHA-256 `89f098da…18399ef907c` | 2026-11-26 |
 | Earlier failed runs (fixed and replaced) | https://github.com/FrameFlags/ColdSnow/actions/runs/45740160051, /45740542855, /45741991096, /45742356344 | 2026-11-26 |
