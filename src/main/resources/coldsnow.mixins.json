@@ -1,0 +1,11 @@
+{
+  "required": false,
+  "package": "itamio.coldsnow.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [],
+  "client": [
+    "LevelRendererMixin"
+  ],
+  "minVersion": "0.8",
+  "refmap": "coldsnow.refmap.json"
+}
