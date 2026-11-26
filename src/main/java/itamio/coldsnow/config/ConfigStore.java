@@ -127,9 +127,9 @@ public final class ConfigStore<T> {
         }
     }
 
-    private void validated(T value) {
+    private T validated(T value) {
         if (value == null) {
-            return;
+            return null;
         }
         try {
             Method validate = value.getClass().getMethod("validate");
@@ -139,5 +139,6 @@ public final class ConfigStore<T> {
         } catch (ReflectiveOperationException | RuntimeException ignored) {
             // Config POJOs are expected to clamp themselves; absence is not fatal.
         }
+        return value;
     }
 }
