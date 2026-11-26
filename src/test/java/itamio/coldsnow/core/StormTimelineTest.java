@@ -97,7 +97,8 @@ class StormTimelineTest {
         StormSnapshot justBeforeZero = timeline.at(-1L);
         assertEquals(-1, justBeforeZero.cycleIndex());
         assertEquals(StormStage.TAPER, justBeforeZero.stage());
-        assertEquals(previousLength - 1L, justBeforeZero.tickInStage());
+        assertEquals(previousLength - 1L - previousLength * 85L / 100L,
+                justBeforeZero.tickInStage());
 
         StormSnapshot zero = timeline.at(0L);
         assertEquals(0, zero.cycleIndex());

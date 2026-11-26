@@ -70,7 +70,7 @@ public final class ConfigStore<T> {
                 throw new JsonParseException("empty config object");
             }
             return validated(parsed);
-        } catch (JsonParseException | IllegalStateException e) {
+        } catch (JsonParseException | IllegalStateException | IOException e) {
             backupInvalid();
             return validated(defaults.get());
         }

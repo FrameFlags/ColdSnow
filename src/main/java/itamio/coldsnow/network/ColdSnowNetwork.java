@@ -16,7 +16,7 @@ public final class ColdSnowNetwork {
     private static final String PROTOCOL_VERSION = "1";
 
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-            new ResourceLocation(Constants.MODID, "storm"),
+            ResourceLocation.fromNamespaceAndPath(Constants.MODID, "storm"),
             () -> PROTOCOL_VERSION,
             version -> true,
             version -> true);
